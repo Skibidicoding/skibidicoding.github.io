@@ -1,0 +1,112 @@
+body {
+ font-family: Arial, sans-serif;
+ text-align: center;
+ background-color: #f3f4f6;
+ margin: 0;
+ padding: 0;
+}
+
+
+h1 {
+ font-size: 2.5rem;
+ margin-top: 20px;
+}
+
+
+.game-container {
+ max-width: 600px;
+ margin: 0 auto;
+ padding: 20px;
+}
+
+
+.Banana img {
+ width: 200px;
+ cursor: pointer;
+}
+
+
+
+
+#Banana-count {
+ font-size: 1.5rem;
+ margin: 10px 0;
+}
+
+
+.upgrades {
+ margin-top: 20px;
+}
+
+
+.upgrades h2 {
+ font-size: 1.8rem;
+}
+
+
+.upgrades button {
+ display: block;
+ width: 100%;
+ margin: 10px 0;
+ padding: 10px;
+ font-size: 1rem;
+ cursor: pointer;
+ background-color: #ffd700;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ transition: background-color 0.3s ease;
+}
+
+
+.upgrades button:hover {
+ background-color: #ffc107;
+}
+
+
+.upgrades span {
+ font-size: 0.9rem;
+ color: #555;
+ margin-left: 10px;
+}
+
+
+.upgrades button {
+ margin: 5px 0;
+}
+
+
+.upgrades .bulk-buy {
+ background-color: #ffa500;
+ color: white;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ margin-left: 5px;
+ padding: 5px 10px;
+ cursor: pointer;
+}
+
+
+.upgrades .bulk-buy:hover {
+ background-color: #ff8c00;
+}
+
+
+#reset-button {
+ background-color: #ff4d4d; /* Red color to indicate reset */
+ color: white;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ padding: 10px;
+ font-size: 1rem;
+ cursor: pointer;
+ margin-top: 20px;
+ transition: background-color 0.3s ease;
+}
+
+
+#reset-button:hover {
+ background-color: #e60000; /* Darker red on hover */
+}
+
+
+
