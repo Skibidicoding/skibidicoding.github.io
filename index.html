@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Banana Clicker</title>
+ <link rel="stylesheet" href="styles.css">
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+ <h1>Banana Clicker</h1>
+ <div class="game-container">
+   <div class="Banana">
+     <img src="https://www.pbs.org/wnet/nature/files/2014/10/Monkey-Main-1280x600.jpg" alt="Banana" onclick="clickBanana()">
+   </div>   
+   <p id="banana-count">Bananas: 0</p>
+  
+   <div class="upgrades">
+     <h2>Upgrades</h2>
+    
+     <!-- Palm Tree -->
+     <button onclick="buyUpgrade('cpsincrease', 1)" id="palmtree-button">Palm Tree - Cost: 10 Bananas</button>
+     <span id="cpsincrease-count">0 Bought</span>
+     <br>
+     <button onclick="buyUpgrade('cpsincrease', 10)" class="bulk-buy">Buy 10</button>
+     <button onclick="buyUpgrade('cpsincrease', 100)" class="bulk-buy">Buy 100</button>
+     <br>
+    
+     <!-- Grandma -->
+     <button onclick="buyUpgrade('grandma', 1)" id="grandma-button">Grandma - Cost: 100 Bananas</button>
+     <span id="grandma-count">0 Bought</span>
+     <br>
+     <button onclick="buyUpgrade('grandma', 10)" class="bulk-buy">Buy 10</button>
+     <button onclick="buyUpgrade('grandma', 100)" class="bulk-buy">Buy 100</button>
+     <br>
+
+
+     <!-- Farm -->
+     <button onclick="buyUpgrade('farm', 1)" id="farm-button">Farm - Cost: 250 Bananas</button>
+     <span id="farm-count">0 Bought</span>
+     <br>
+     <button onclick="buyUpgrade('farm', 10)" class="bulk-buy">Buy 10</button>
+     <button onclick="buyUpgrade('farm', 100)" class="bulk-buy">Buy 100</button>
+     <br>
+
+
+     <!-- Factory -->
+     <button onclick="buyUpgrade('factory', 1)" id="factory-button">Factory - Cost: 500 Bananas</button>
+     <span id="factory-count">0 Bought</span>
+     <br>
+     <button onclick="buyUpgrade('factory', 10)" class="bulk-buy">Buy 10</button>
+     <button onclick="buyUpgrade('factory', 100)" class="bulk-buy">Buy 100</button>
+     <br>
+
+
+     <!-- Bakery -->
+     <button onclick="buyUpgrade('bakery', 1)" id="bakery-button">Bakery - Cost: 750 Bananas</button>
+     <span id="bakery-count">0 Bought</span>
+     <br>
+     <button onclick="buyUpgrade('bakery', 10)" class="bulk-buy">Buy 10</button>
+     <button onclick="buyUpgrade('bakery', 100)" class="bulk-buy">Buy 100</button>
+     <br>
+
+
+     <!-- Mine -->
+     <button onclick="buyUpgrade('mine', 1)" id="mine-button">Mine - Cost: 1000 Bananas</button>
+     <span id="mine-count">0 Bought</span>
+     <br>
+     <button onclick="buyUpgrade('mine', 10)" class="bulk-buy">Buy 10</button>
+     <button onclick="buyUpgrade('mine', 100)" class="bulk-buy">Buy 100</button>
+     <br>
+
+
+     <!-- Spaceship -->
+     <button onclick="buyUpgrade('spaceship', 1)" id="spaceship-button">Spaceship - Cost: 5000 Bananas</button>
+     <span id="spaceship-count">0 Bought</span>
+     <br>
+     <button onclick="buyUpgrade('spaceship', 10)" class="bulk-buy">Buy 10</button>
+     <button onclick="buyUpgrade('spaceship', 100)" class="bulk-buy">Buy 100</button>
+     <br>
+
+
+     <!-- Time Machine -->
+     <button onclick="buyUpgrade('timeMachine', 1)" id="timeMachine-button">Time Machine - Cost: 20000 Bananas</button>
+     <span id="timeMachine-count">0 Bought</span>
+     <br>
+     <button onclick="buyUpgrade('timeMachine', 10)" class="bulk-buy">Buy 10</button>
+     <button onclick="buyUpgrade('timeMachine', 100)" class="bulk-buy">Buy 100</button>
+     <br>
+
+
+     <!-- Portal -->
+     <button onclick="buyUpgrade('portal', 1)" id="portal-button">Portal - Cost: 100000 Bananas</button>
+     <span id="portal-count">0 Bought</span>
+     <br>
+     <button onclick="buyUpgrade('portal', 10)" class="bulk-buy">Buy 10</button>
+     <button onclick="buyUpgrade('portal', 100)" class="bulk-buy">Buy 100</button>
+     <br>
+
+
+     <!-- Dimension Rift -->
+     <button onclick="buyUpgrade('dimensionRift', 1)" id="dimensionRift-button">Dimension Rift - Cost: 500000 Bananas</button>
+     <span id="dimensionRift-count">0 Bought</span>
+     <br>
+     <button onclick="buyUpgrade('dimensionRift', 10)" class="bulk-buy">Buy 10</button>
+     <button onclick="buyUpgrade('dimensionRift', 100)" class="bulk-buy">Buy 100</button>
+     <br>
+    
+     <button onclick="buyUpgrade('bananauniverse', 1)" id="bananauniverse-button">Banana Universe - Cost: 750000 Bananas</button>
+     <span id="bananauniverse-count">0 Bought</span>
+     <br>
+     <button onclick="buyUpgrade('bananauniverse', 10)" class="bulk-buy">Buy 10</button>
+     <button onclick="buyUpgrade('bananauniverse', 100)" class="bulk-buy">Buy 100</button>
+     <br>
+
+
+     <button id="reset-button" onclick="resetGame()">Reset Game</button>
+   </div>
+ </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
