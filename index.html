@@ -1,125 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Banana Clicker</title>
- <link rel="stylesheet" href="styles.css">
- <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banana Clicker</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
- <h1>Banana Clicker</h1>
- <div class="game-container">
-   <div class="Banana">
-     <img src="https://www.pbs.org/wnet/nature/files/2014/10/Monkey-Main-1280x600.jpg" alt="Banana" onclick="clickBanana()">
-   </div>   
-   <p id="banana-count">Bananas: 0</p>
-  
-   <div class="upgrades">
-     <h2>Upgrades</h2>
-    
-     <!-- Palm Tree -->
-     <button onclick="buyUpgrade('cpsincrease', 1)" id="palmtree-button">Palm Tree - Cost: 10 Bananas</button>
-     <span id="cpsincrease-count">0 Bought</span>
-     <br>
-     <button onclick="buyUpgrade('cpsincrease', 10)" class="bulk-buy">Buy 10</button>
-     <button onclick="buyUpgrade('cpsincrease', 100)" class="bulk-buy">Buy 100</button>
-     <br>
-    
-     <!-- Grandma -->
-     <button onclick="buyUpgrade('grandma', 1)" id="grandma-button">Grandma - Cost: 100 Bananas</button>
-     <span id="grandma-count">0 Bought</span>
-     <br>
-     <button onclick="buyUpgrade('grandma', 10)" class="bulk-buy">Buy 10</button>
-     <button onclick="buyUpgrade('grandma', 100)" class="bulk-buy">Buy 100</button>
-     <br>
+  <div class="game-wrapper">
+    <header>
+      <h1><i class="fas fa-banana"></i> Banana Clicker</h1>
+      <div class="stats-bar">
+        <div class="stat">
+          <span id="banana-count">0</span> Bananas
+        </div>
+        <div class="stat">
+          <span id="cps">0</span> per second
+        </div>
+      </div>
+    </header>
 
+    <main class="game-container">
+      <div class="banana-section">
+        <div class="banana" id="banana-btn">
+          <img src="https://cdn-icons-png.flaticon.com/512/1682/1682132.png" alt="Banana" id="banana-img">
+          <div id="click-particles"></div>
+        </div>
+      </div>
 
-     <!-- Farm -->
-     <button onclick="buyUpgrade('farm', 1)" id="farm-button">Farm - Cost: 250 Bananas</button>
-     <span id="farm-count">0 Bought</span>
-     <br>
-     <button onclick="buyUpgrade('farm', 10)" class="bulk-buy">Buy 10</button>
-     <button onclick="buyUpgrade('farm', 100)" class="bulk-buy">Buy 100</button>
-     <br>
+      <div class="upgrades-section">
+        <h2>Upgrades</h2>
+        <div class="upgrades-container">
+          <!-- Palm Tree -->
+          <div class="upgrade-item" id="cpsincrease-container">
+            <div class="upgrade-info">
+              <div class="upgrade-icon"><i class="fas fa-tree"></i></div>
+              <div class="upgrade-details">
+                <h3>Palm Tree</h3>
+                <p class="upgrade-description">Plants that grow bananas slowly.</p>
+                <p><span id="cpsincrease-count">0</span> owned • +1 banana/sec</p>
+              </div>
+            </div>
+            <div class="upgrade-buttons">
+              <button onclick="buyUpgrade('cpsincrease', 1)" id="cpsincrease-button" class="upgrade-btn">
+                <span class="cost">10</span> <i class="fas fa-banana"></i>
+              </button>
+              <div class="bulk-actions">
+                <button onclick="buyUpgrade('cpsincrease', 10)" class="bulk-buy">×10</button>
+                <button onclick="buyUpgrade('cpsincrease', 100)" class="bulk-buy">×100</button>
+              </div>
+            </div>
+          </div>
 
+          <!-- Grandma -->
+          <div class="upgrade-item" id="grandma-container">
+            <div class="upgrade-info">
+              <div class="upgrade-icon"><i class="fas fa-user"></i></div>
+              <div class="upgrade-details">
+                <h3>Grandma</h3>
+                <p class="upgrade-description">A nice grandma to bake banana bread.</p>
+                <p><span id="grandma-count">0</span> owned • +1 banana/sec</p>
+              </div>
+            </div>
+            <div class="upgrade-buttons">
+              <button onclick="buyUpgrade('grandma', 1)" id="grandma-button" class="upgrade-btn">
+                <span class="cost">100</span> <i class="fas fa-banana"></i>
+              </button>
+              <div class="bulk-actions">
+                <button onclick="buyUpgrade('grandma', 10)" class="bulk-buy">×10</button>
+                <button onclick="buyUpgrade('grandma', 100)" class="bulk-buy">×100</button>
+              </div>
+            </div>
+          </div>
 
-     <!-- Factory -->
-     <button onclick="buyUpgrade('factory', 1)" id="factory-button">Factory - Cost: 500 Bananas</button>
-     <span id="factory-count">0 Bought</span>
-     <br>
-     <button onclick="buyUpgrade('factory', 10)" class="bulk-buy">Buy 10</button>
-     <button onclick="buyUpgrade('factory', 100)" class="bulk-buy">Buy 100</button>
-     <br>
+          <!-- Farm -->
+          <div class="upgrade-item" id="farm-container">
+            <div class="upgrade-info">
+              <div class="upgrade-icon"><i class="fas fa-tractor"></i></div>
+              <div class="upgrade-details">
+                <h3>Farm</h3>
+                <p class="upgrade-description">Grows bananas in large quantities.</p>
+                <p><span id="farm-count">0</span> owned • +5 banana/sec</p>
+              </div>
+            </div>
+            <div class="upgrade-buttons">
+              <button onclick="buyUpgrade('farm', 1)" id="farm-button" class="upgrade-btn">
+                <span class="cost">250</span> <i class="fas fa-banana"></i>
+              </button>
+              <div class="bulk-actions">
+                <button onclick="buyUpgrade('farm', 10)" class="bulk-buy">×10</button>
+                <button onclick="buyUpgrade('farm', 100)" class="bulk-buy">×100</button>
+              </div>
+            </div>
+          </div>
 
+          <!-- Factory -->
+          <div class="upgrade-item" id="factory-container">
+            <div class="upgrade-info">
+              <div class="upgrade-icon"><i class="fas fa-industry"></i></div>
+              <div class="upgrade-details">
+                <h3>Factory</h3>
+                <p class="upgrade-description">Mass production of bananas.</p>
+                <p><span id="factory-count">0</span> owned • +10 banana/sec</p>
+              </div>
+            </div>
+            <div class="upgrade-buttons">
+              <button onclick="buyUpgrade('factory', 1)" id="factory-button" class="upgrade-btn">
+                <span class="cost">500</span> <i class="fas fa-banana"></i>
+              </button>
+              <div class="bulk-actions">
+                <button onclick="buyUpgrade('factory', 10)" class="bulk-buy">×10</button>
+                <button onclick="buyUpgrade('factory', 100)" class="bulk-buy">×100</button>
+              </div>
+            </div>
+          </div>
 
-     <!-- Bakery -->
-     <button onclick="buyUpgrade('bakery', 1)" id="bakery-button">Bakery - Cost: 750 Bananas</button>
-     <span id="bakery-count">0 Bought</span>
-     <br>
-     <button onclick="buyUpgrade('bakery', 10)" class="bulk-buy">Buy 10</button>
-     <button onclick="buyUpgrade('bakery', 100)" class="bulk-buy">Buy 100</button>
-     <br>
+          <!-- Bakery -->
+          <div class="upgrade-item" id="bakery-container">
+            <div class="upgrade-info">
+              <div class="upgrade-icon"><i class="fas fa-bread-slice"></i></div>
+              <div class="upgrade-details">
+                <h3>Bakery</h3>
+                <p class="upgrade-description">Bakes delicious banana goods.</p>
+                <p><span id="bakery-count">0</span> owned • +20 banana/sec</p>
+              </div>
+            </div>
+            <div class="upgrade-buttons">
+              <button onclick="buyUpgrade('bakery', 1)" id="bakery-button" class="upgrade-btn">
+                <span class="cost">750</span> <i class="fas fa-banana"></i>
+              </button>
+              <div class="bulk-actions">
+                <button onclick="buyUpgrade('bakery', 10)" class="bulk-buy">×10</button>
+                <button onclick="buyUpgrade('bakery', 100)" class="bulk-buy">×100</button>
+              </div>
+            </div>
+          </div>
 
+          <!-- Mine -->
+          <div class="upgrade-item" id="mine-container">
+            <div class="upgrade-info">
+              <div class="upgrade-icon"><i class="fas fa-gem"></i></div>
+              <div class="upgrade-details">
+                <h3>Mine</h3>
+                <p class="upgrade-description">Dig deep for rare golden bananas.</p>
+                <p><span id="mine-count">0</span> owned • +40 banana/sec</p>
+              </div>
+            </div>
+            <div class="upgrade-buttons">
+              <button onclick="buyUpgrade('mine', 1)" id="mine-button" class="upgrade-btn">
+                <span class="cost">1,000</span> <i class="fas fa-banana"></i>
+              </button>
+              <div class="bulk-actions">
+                <button onclick="buyUpgrade('mine', 10)" class="bulk-buy">×10</button>
+                <button onclick="buyUpgrade('mine', 100)" class="bulk-buy">×100</button>
+              </div>
+            </div>
+          </div>
 
-     <!-- Mine -->
-     <button onclick="buyUpgrade('mine', 1)" id="mine-button">Mine - Cost: 1000 Bananas</button>
-     <span id="mine-count">0 Bought</span>
-     <br>
-     <button onclick="buyUpgrade('mine', 10)" class="bulk-buy">Buy 10</button>
-     <button onclick="buyUpgrade('mine', 100)" class="bulk-buy">Buy 100</button>
-     <br>
+          <!-- Spaceship -->
+          <div class="upgrade-item" id="spaceship-container">
+            <div class="upgrade-info">
+              <div class="upgrade-icon"><i class="fas fa-rocket"></i></div>
+              <div class="upgrade-details">
+                <h3>Spaceship</h3>
+                <p class="upgrade-description">Imports bananas from space.</p>
+                <p><span id="spaceship-count">0</span> owned • +100 banana/sec</p>
+              </div>
+            </div>
+            <div class="upgrade-buttons">
+              <button onclick="buyUpgrade('spaceship', 1)" id="spaceship-button" class="upgrade-btn">
+                <span class="cost">5,000</span> <i class="fas fa-banana"></i>
+              </button>
+              <div class="bulk-actions">
+                <button onclick="buyUpgrade('spaceship', 10)" class="bulk-buy">×10</button>
+                <button onclick="buyUpgrade('spaceship', 100)" class="bulk-buy">×100</button>
+              </div>
+            </div>
+          </div>
 
+          <!-- Time Machine -->
+          <div class="upgrade-item" id="timeMachine-container">
+            <div class="upgrade-info">
+              <div class="upgrade-icon"><i class="fas fa-clock"></i></div>
+              <div class="upgrade-details">
+                <h3>Time Machine</h3>
+                <p class="upgrade-description">Brings bananas from the past.</p>
+                <p><span id="timeMachine-count">0</span> owned • +250 banana/sec</p>
+              </div>
+            </div>
+            <div class="upgrade-buttons">
+              <button onclick="buyUpgrade('timeMachine', 1)" id="timeMachine-button" class="upgrade-btn">
+                <span class="cost">20,000</span> <i class="fas fa-banana"></i>
+              </button>
+              <div class="bulk-actions">
+                <button onclick="buyUpgrade('timeMachine', 10)" class="bulk-buy">×10</button>
+                <button onclick="buyUpgrade('timeMachine', 100)" class="bulk-buy">×100</button>
+              </div>
+            </div>
+          </div>
 
-     <!-- Spaceship -->
-     <button onclick="buyUpgrade('spaceship', 1)" id="spaceship-button">Spaceship - Cost: 5000 Bananas</button>
-     <span id="spaceship-count">0 Bought</span>
-     <br>
-     <button onclick="buyUpgrade('spaceship', 10)" class="bulk-buy">Buy 10</button>
-     <button onclick="buyUpgrade('spaceship', 100)" class="bulk-buy">Buy 100</button>
-     <br>
+          <!-- Portal -->
+          <div class="upgrade-item" id="portal-container">
+            <div class="upgrade-info">
+              <div class="upgrade-icon"><i class="fas fa-door-open"></i></div>
+              <div class="upgrade-details">
+                <h3>Portal</h3>
+                <p class="upgrade-description">Opens gateways to banana dimensions.</p>
+                <p><span id="portal-count">0</span> owned • +500 banana/sec</p>
+              </div>
+            </div>
+            <div class="upgrade-buttons">
+              <button onclick="buyUpgrade('portal', 1)" id="portal-button" class="upgrade-btn">
+                <span class="cost">100,000</span> <i class="fas fa-banana"></i>
+              </button>
+              <div class="bulk-actions">
+                <button onclick="buyUpgrade('portal', 10)" class="bulk-buy">×10</button>
+                <button onclick="buyUpgrade('portal', 100)" class="bulk-buy">×100</button>
+              </div>
+            </div>
+          </div>
 
+          <!-- Dimension Rift -->
+          <div class="upgrade-item" id="dimensionRift-container">
+            <div class="upgrade-info">
+              <div class="upgrade-icon"><i class="fas fa-meteor"></i></div>
+              <div class="upgrade-details">
+                <h3>Dimension Rift</h3>
+                <p class="upgrade-description">Tears in reality that leak banana energy.</p>
+                <p><span id="dimensionRift-count">0</span> owned • +1,000 banana/sec</p>
+              </div>
+            </div>
+            <div class="upgrade-buttons">
+              <button onclick="buyUpgrade('dimensionRift', 1)" id="dimensionRift-button" class="upgrade-btn">
+                <span class="cost">500,000</span> <i class="fas fa-banana"></i>
+              </button>
+              <div class="bulk-actions">
+                <button onclick="buyUpgrade('dimensionRift', 10)" class="bulk-buy">×10</button>
+                <button onclick="buyUpgrade('dimensionRift', 100)" class="bulk-buy">×100</button>
+              </div>
+            </div>
+          </div>
 
-     <!-- Time Machine -->
-     <button onclick="buyUpgrade('timeMachine', 1)" id="timeMachine-button">Time Machine - Cost: 20000 Bananas</button>
-     <span id="timeMachine-count">0 Bought</span>
-     <br>
-     <button onclick="buyUpgrade('timeMachine', 10)" class="bulk-buy">Buy 10</button>
-     <button onclick="buyUpgrade('timeMachine', 100)" class="bulk-buy">Buy 100</button>
-     <br>
+          <!-- Banana Universe -->
+          <div class="upgrade-item" id="bananauniverse-container">
+            <div class="upgrade-info">
+              <div class="upgrade-icon"><i class="fas fa-globe"></i></div>
+              <div class="upgrade-details">
+                <h3>Banana Universe</h3>
+                <p class="upgrade-description">An entire universe made of bananas.</p>
+                <p><span id="bananauniverse-count">0</span> owned • +5,000 banana/sec</p>
+              </div>
+            </div>
+            <div class="upgrade-buttons">
+              <button onclick="buyUpgrade('bananauniverse', 1)" id="bananauniverse-button" class="upgrade-btn">
+                <span class="cost">750,000</span> <i class="fas fa-banana"></i>
+              </button>
+              <div class="bulk-actions">
+                <button onclick="buyUpgrade('bananauniverse', 10)" class="bulk-buy">×10</button>
+                <button onclick="buyUpgrade('bananauniverse', 100)" class="bulk-buy">×100</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
+    <div class="controls">
+      <div class="stats-panel" id="stats-panel">
+        <h3>Statistics</h3>
+        <div class="stat-items">
+          <div class="stat-item">
+            <div class="stat-label">Total Bananas:</div>
+            <div class="stat-value" id="total-bananas">0</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Bananas per Click:</div>
+            <div class="stat-value" id="bananas-per-click">1</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Hand Clicked:</div>
+            <div class="stat-value" id="hand-clicked">0</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Playing for:</div>
+            <div class="stat-value" id="play-time">0 minutes</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="buttons-panel">
+        <button id="save-button" class="control-btn" onclick="saveGame()">
+          <i class="fas fa-save"></i> Save Game
+        </button>
+        <button id="reset-button" class="control-btn warning" onclick="confirmReset()">
+          <i class="fas fa-trash"></i> Reset Game
+        </button>
+      </div>
+    </div>
+  </div>
 
-     <!-- Portal -->
-     <button onclick="buyUpgrade('portal', 1)" id="portal-button">Portal - Cost: 100000 Bananas</button>
-     <span id="portal-count">0 Bought</span>
-     <br>
-     <button onclick="buyUpgrade('portal', 10)" class="bulk-buy">Buy 10</button>
-     <button onclick="buyUpgrade('portal', 100)" class="bulk-buy">Buy 100</button>
-     <br>
+  <div id="achievement-popup" class="achievement-popup">
+    <div class="achievement-content">
+      <h3><i class="fas fa-trophy"></i> Achievement Unlocked!</h3>
+      <p id="achievement-message"></p>
+    </div>
+  </div>
 
+  <div id="reset-modal" class="modal">
+    <div class="modal-content">
+      <h2>Reset Game</h2>
+      <p>Are you sure you want to reset your game? All progress will be lost!</p>
+      <div class="modal-buttons">
+        <button onclick="hideResetModal()" class="modal-btn cancel">Cancel</button>
+        <button onclick="resetGame()" class="modal-btn confirm">Reset</button>
+      </div>
+    </div>
+  </div>
 
-     <!-- Dimension Rift -->
-     <button onclick="buyUpgrade('dimensionRift', 1)" id="dimensionRift-button">Dimension Rift - Cost: 500000 Bananas</button>
-     <span id="dimensionRift-count">0 Bought</span>
-     <br>
-     <button onclick="buyUpgrade('dimensionRift', 10)" class="bulk-buy">Buy 10</button>
-     <button onclick="buyUpgrade('dimensionRift', 100)" class="bulk-buy">Buy 100</button>
-     <br>
-    
-     <button onclick="buyUpgrade('bananauniverse', 1)" id="bananauniverse-button">Banana Universe - Cost: 750000 Bananas</button>
-     <span id="bananauniverse-count">0 Bought</span>
-     <br>
-     <button onclick="buyUpgrade('bananauniverse', 10)" class="bulk-buy">Buy 10</button>
-     <button onclick="buyUpgrade('bananauniverse', 100)" class="bulk-buy">Buy 100</button>
-     <br>
-
-
-     <button id="reset-button" onclick="resetGame()">Reset Game</button>
-   </div>
- </div>
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
